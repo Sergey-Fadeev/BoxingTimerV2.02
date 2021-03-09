@@ -21,6 +21,8 @@ class SecondViewController: UIViewController {
     
     func start(nextRoundNum: Int? = nil){
         displayedDescriptor = initialDescriptor!
+        roundCount += 1
+        roundCountLabel.text = "Раунд \(roundCount) из \(initialDescriptor!.roundNum)"
         
         if let nextRoundNum = nextRoundNum{
             displayedDescriptor.roundNum = nextRoundNum
@@ -56,7 +58,7 @@ class SecondViewController: UIViewController {
     @IBOutlet var backgroundView: UIView!
     
     
-    
+    var roundCount = 0
     
     
     //MARK: FIGHT
@@ -64,17 +66,17 @@ class SecondViewController: UIViewController {
     
     func startFightTimer(){
         fightTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fightTimerHandler), userInfo: nil, repeats: true)
-        
-        fightUIConstruct()
     }
     
     
     func fightUIConstruct() {
         backgroundView.backgroundColor = UIColor.systemOrange
+        fighftOrRelaxLabel.text = "Бой"
     }
     
     
     @objc func fightTimerHandler(){
+        fightUIConstruct()
         fightUIUpdate()
         
         if displayedDescriptor.fightTime > 0{
@@ -100,17 +102,18 @@ class SecondViewController: UIViewController {
     
     func startRelaxTimer(){
         timerRelax = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(relaxTimerHandler), userInfo: nil, repeats: true)
-        relaxUIConstruct()
     }
     
     
     func relaxUIConstruct() {
         backgroundView.backgroundColor = UIColor.gray
+        fighftOrRelaxLabel.text = "Отдых"
     }
     
     
     @objc func relaxTimerHandler(){
-        if displayedDescriptor.relaxTime > 0{
+        relaxUIConstruct()
+        if displayedDescriptor.relaxTime >= 0{
             relaxUIUpdate()
             
             displayedDescriptor.relaxTime -= 1
