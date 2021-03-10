@@ -17,6 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeRoundLabel: UILabel!
     @IBOutlet weak var roundCountLabel: UILabel!
     
+    @IBAction func uwindToMainScreen(segue: UIStoryboardSegue){
+        if segue.identifier == "unwindSegue"{
+            viewDidLoad()
+        }
+    }
+    
     var initialRoundDescriptor = RoundDescriptor(roundNum: 0, fightTime: 0, relaxTime: 0)
     
     

@@ -9,10 +9,10 @@ import UIKit
 
 class SecondViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         start()
-
     }
     
 
@@ -30,6 +30,7 @@ class SecondViewController: UIViewController {
         
         if displayedDescriptor.roundNum > 0{
             startFightTimer()
+            playSoundForStartFight()
         }
         else{
             finish()
@@ -38,7 +39,8 @@ class SecondViewController: UIViewController {
     
     
     func finish(){
-        
+        performSegue(withIdentifier: "unwindSegue", sender: nil)
+        playSoundForFinishFight()
     }
     
     
@@ -56,6 +58,13 @@ class SecondViewController: UIViewController {
     
     
     @IBOutlet var backgroundView: UIView!
+    
+    
+    
+    @IBAction func resetButton(_ sender: Any) {
+        performSegue(withIdentifier: "unwindSegue", sender: nil)
+    }
+    
     
     
     var roundCount = 0
@@ -84,7 +93,12 @@ class SecondViewController: UIViewController {
             displayedDescriptor.fightTime -= 1
         }else{
             fightTimer?.invalidate()
-            startRelaxTimer()
+            playSoundForStartFight()
+            if displayedDescriptor.roundNum > 1{
+                startRelaxTimer()
+            }else{
+                finish()
+            }
         }
     }
     

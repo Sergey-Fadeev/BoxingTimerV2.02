@@ -43,6 +43,9 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="СБРОС"/>
+                                <connections>
+                                    <action selector="resetButton:" destination="T3D-w8-T6b" eventType="touchUpInside" id="7Be-6X-5QU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-8J-GME">
                                 <rect key="frame" x="20" y="682" width="374" height="60"/>
@@ -88,16 +91,18 @@
                         <outlet property="fighftOrRelaxLabel" destination="PgA-US-rTr" id="84Q-X9-Uts"/>
                         <outlet property="roundCountLabel" destination="2NK-2w-7da" id="ptw-Zw-65d"/>
                         <outlet property="roundTimeLabel" destination="cZJ-Ot-Suw" id="6QY-P2-0de"/>
+                        <segue destination="fcv-vb-Gxc" kind="unwind" identifier="unwindSegue" unwindAction="uwindToMainScreenWithSegue:" id="6E7-39-W8N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34F-Sy-nop" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="fcv-vb-Gxc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="825" y="-155.28169014084509"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BoxingTimerV2_0" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="unwindSegue" id="BYZ-38-t0r" customClass="ViewController" customModule="BoxingTimerV2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -149,7 +154,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="T3D-w8-T6b" kind="presentation" identifier="srartSegue" destinationCreationSelector="ssss:" modalPresentationStyle="fullScreen" id="iQ9-dJ-BYF"/>
+                                    <segue destination="T3D-w8-T6b" kind="show" identifier="srartSegue" destinationCreationSelector="ssss:" id="iQ9-dJ-BYF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -170,6 +175,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="COo-wj-n8p" secondAttribute="trailing" constant="20" id="zba-8p-xsc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AGd-Nt-hoH"/>
                     <connections>
                         <outlet property="PickerView" destination="ugp-GB-eiU" id="QZj-su-h1S"/>
                         <outlet property="relaxLabel" destination="9ca-Ka-ehc" id="05o-A1-jxf"/>
