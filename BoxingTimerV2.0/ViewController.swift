@@ -17,6 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var timeRoundLabel: UILabel!
     @IBOutlet weak var roundCountLabel: UILabel!
     
+    @IBOutlet weak var startButton: UIButton!
+    
+    
     @IBAction func uwindToMainScreen(segue: UIStoryboardSegue){
         if segue.identifier == "unwindSegue"{
             viewDidLoad()
@@ -60,6 +63,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupPickerView()
         setupLabelText()
+        startButton.layer.cornerRadius = 15
     }
 }
 

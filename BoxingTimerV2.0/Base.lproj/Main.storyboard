@@ -49,13 +49,16 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nX-8J-GME">
                                 <rect key="frame" x="20" y="682" width="374" height="60"/>
-                                <color key="backgroundColor" red="0.35912297927394832" green="0.74404985761319131" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="se3-6O-5ZU"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="ПАУЗА"/>
+                                <connections>
+                                    <action selector="pauseButton:" destination="T3D-w8-T6b" eventType="touchUpInside" id="7Yz-Km-Vud"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZJ-Ot-Suw">
                                 <rect key="frame" x="20" y="204" width="374" height="378"/>
@@ -89,6 +92,8 @@
                     <connections>
                         <outlet property="backgroundView" destination="7gS-7X-Lyj" id="WxT-Jm-kPX"/>
                         <outlet property="fighftOrRelaxLabel" destination="PgA-US-rTr" id="84Q-X9-Uts"/>
+                        <outlet property="pauseButton" destination="3nX-8J-GME" id="kM0-D8-eVk"/>
+                        <outlet property="resetButton" destination="uct-zc-jsb" id="5Zk-0C-UKX"/>
                         <outlet property="roundCountLabel" destination="2NK-2w-7da" id="ptw-Zw-65d"/>
                         <outlet property="roundTimeLabel" destination="cZJ-Ot-Suw" id="6QY-P2-0de"/>
                         <segue destination="fcv-vb-Gxc" kind="unwind" identifier="unwindSegue" unwindAction="uwindToMainScreenWithSegue:" id="6E7-39-W8N"/>
@@ -180,6 +185,7 @@
                         <outlet property="PickerView" destination="ugp-GB-eiU" id="QZj-su-h1S"/>
                         <outlet property="relaxLabel" destination="9ca-Ka-ehc" id="05o-A1-jxf"/>
                         <outlet property="roundCountLabel" destination="dLl-kC-Khz" id="sEn-of-I61"/>
+                        <outlet property="startButton" destination="COo-wj-n8p" id="Q0T-mt-GaH"/>
                         <outlet property="timeRoundLabel" destination="ONU-ZH-OBu" id="TE9-fW-kjG"/>
                     </connections>
                 </viewController>
@@ -189,6 +195,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

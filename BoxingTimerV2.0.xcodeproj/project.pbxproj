@@ -50,8 +50,6 @@
 		A58B9DD525EF7F4F00CC9703 = {
 			isa = PBXGroup;
 			children = (
-				A58B9DF725EF9AAC00CC9703 /* Countdown_UI_Controller.swift */,
-				A5906A0425F8D4EE00998654 /* AudioClass.swift */,
 				A58B9DE025EF7F4F00CC9703 /* BoxingTimerV2.0 */,
 				A58B9DDF25EF7F4F00CC9703 /* Products */,
 			);
@@ -69,9 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				A59069FC25F8BDD300998654 /* Audio */,
+				A58B9DE525EF7F4F00CC9703 /* ViewController.swift */,
+				A58B9DF725EF9AAC00CC9703 /* Countdown_UI_Controller.swift */,
+				A5906A0425F8D4EE00998654 /* AudioClass.swift */,
 				A58B9DE125EF7F4F00CC9703 /* AppDelegate.swift */,
 				A58B9DE325EF7F4F00CC9703 /* SceneDelegate.swift */,
-				A58B9DE525EF7F4F00CC9703 /* ViewController.swift */,
 				A58B9DE725EF7F4F00CC9703 /* Main.storyboard */,
 				A58B9DEA25EF7F5000CC9703 /* Assets.xcassets */,
 				A58B9DEC25EF7F5000CC9703 /* LaunchScreen.storyboard */,

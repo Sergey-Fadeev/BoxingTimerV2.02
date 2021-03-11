@@ -12,6 +12,8 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetButton.layer.cornerRadius = 15
+        pauseButton.layer.cornerRadius = 15
         start()
     }
     
@@ -50,14 +52,61 @@ class SecondViewController: UIViewController {
     
     @IBOutlet weak var roundTimeLabel: UILabel!
     
-    
     @IBOutlet weak var roundCountLabel: UILabel!
-    
     
     @IBOutlet weak var fighftOrRelaxLabel: UILabel!
     
-    
     @IBOutlet var backgroundView: UIView!
+    
+    @IBOutlet weak var pauseButton: UIButton!
+    
+    @IBOutlet weak var resetButton: UIButton!
+    
+    @IBAction func pauseButton(_ sender: UIButton) {
+        if fighftOrRelaxLabel.text == "Бой"{
+            pauseHandlerForFight()
+            sender.setTitle(textForPauseButton, for: .normal)
+            sender.backgroundColor = colorForPauseButton
+        }else if fighftOrRelaxLabel.text == "Отдых"{
+            pauseHandlerForRelax()
+            sender.setTitle(textForPauseButton, for: .normal)
+            sender.backgroundColor = colorForPauseButton
+        }
+    }
+    
+    
+    var isPaused = true
+    var textForPauseButton = "ПАУЗА"
+    var colorForPauseButton = UIColor.systemBlue
+    
+    
+    func pauseHandlerForFight(){
+        if isPaused{
+            fightTimer?.invalidate()
+            textForPauseButton = "ПРОДОЛЖИТЬ"
+            colorForPauseButton = UIColor.systemGreen
+            isPaused = false
+        }else{
+            textForPauseButton = "ПАУЗА"
+            colorForPauseButton = UIColor.systemBlue
+            fightTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(fightTimerHandler), userInfo: nil, repeats: true)
+            isPaused = true
+        }
+    }
+    
+    func pauseHandlerForRelax(){
+        if isPaused{
+            timerRelax?.invalidate()
+            textForPauseButton = "ПРОДОЛЖИТЬ"
+            colorForPauseButton = UIColor.systemGreen
+            isPaused = false
+        }else{
+            textForPauseButton = "ПАУЗА"
+            colorForPauseButton = UIColor.systemBlue
+            timerRelax = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(relaxTimerHandler), userInfo: nil, repeats: true)
+            isPaused = true
+        }
+    }
     
     
     
